@@ -1,0 +1,57 @@
+package com.equalsHashcodeContractDemo;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class EqualsHashcodeTest {
+
+	public static void main(String[] args) {
+		Employee e1=new Employee(1, "Mitul", "CSE");
+		Employee e2=new Employee(1, "Mitul", "CSE");
+		Employee e3=new Employee(2, "Buku", "EE");
+		
+		HashMap<Object,String> m=new HashMap<>();
+		m.put(e1,"gggg");
+		m.put(e2, "uuu");
+		m.put(e3, "mmmmmm");
+		
+		System.out.println(m.size());
+		
+	}
+}
+
+class Employee{
+	
+	int id;
+	String name;
+	String dept;
+	
+	Employee(int id,String name,String dept){
+		
+		this.id=id;
+		this.name=name;
+		this.dept=dept;
+	}
+
+	@Override
+	public int hashCode() {
+		
+		return name.hashCode()+id;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		
+		if(obj instanceof Employee) {
+			Employee emp=(Employee)obj;
+			if(name.equals(emp.name) && id == emp.id) {
+				return true;
+			}else
+				return false;
+		}else {
+			return false;
+		}
+	}
+		
+	
+}

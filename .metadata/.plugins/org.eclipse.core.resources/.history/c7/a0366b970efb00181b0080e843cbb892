@@ -1,0 +1,34 @@
+package com.concurrentMaps;
+
+import java.util.Iterator;
+import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
+
+public class MapUpdationWhileInteratingDemo extends Thread {
+
+	static ConcurrentHashMap m= new ConcurrentHashMap<>();
+	
+	public void run() {
+		
+		
+	}
+	
+	public static void main(String[] args) throws InterruptedException {
+		
+		m.put(101,"A");
+		m.put(102,"B");
+		
+		MapUpdationWhileInteratingDemo t=new MapUpdationWhileInteratingDemo();
+		t.start();
+		Set s=m.keySet();
+		Iterator itr=s.iterator();
+		while(itr.hasNext()) {
+			Integer i= (Integer)itr.next();
+			System.out.println("Printing key::"+i + " value:::" +m.get(i));
+			Thread.sleep(2000);
+		}
+		
+
+	}
+
+}

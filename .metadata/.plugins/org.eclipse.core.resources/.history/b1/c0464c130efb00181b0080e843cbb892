@@ -1,0 +1,21 @@
+package com.concurrentMaps;
+
+import java.util.concurrent.ConcurrentHashMap;
+
+public class MapUpdationWhileInteratingDemo extends Thread {
+
+	static ConcurrentHashMap m= new ConcurrentHashMap<>();
+	
+	public void run() {
+		
+		
+	}
+	
+	public static void main(String[] args) {
+		
+		m.put(101,"A");
+		m.put(102,"B");
+
+	}
+
+}

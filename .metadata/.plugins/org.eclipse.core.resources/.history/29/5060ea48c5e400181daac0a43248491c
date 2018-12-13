@@ -1,0 +1,22 @@
+package com.mapdemo;
+
+import java.util.HashMap;
+
+public class HashMapDemo {
+
+	public static void main(String[] args) {
+		
+		HashMap m=new HashMap();
+		m.put("Chiranjeevi", 700);
+		m.put("Balaiah", 800);
+		m.put("Venkatesh", 200);
+		m.put("Nagarjuna", 500);
+		
+		System.out.println("Printing hashmap........"+m);
+		
+		
+		
+		
+	}
+
+}

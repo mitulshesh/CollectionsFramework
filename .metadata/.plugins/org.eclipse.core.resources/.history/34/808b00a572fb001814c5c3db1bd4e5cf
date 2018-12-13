@@ -1,0 +1,26 @@
+package com.concurrentLists;
+
+import java.util.ArrayList;
+
+public class MapUpdationWhileIteratingDemo extends Thread{
+
+	static ArrayList l=new ArrayList<>();
+	
+	@Override
+	public void run() {
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+	
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

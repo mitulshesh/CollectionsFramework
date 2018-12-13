@@ -1,0 +1,67 @@
+package com.equalsHashcodeContractDemo;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class EqualsHashcodeTest {
+
+	Map m=new HashMap();
+	Employee e1=new Employee(1, "Mitul", "CSE");
+	Employee e2=new Employee(2, "Mitul", "CSE");
+	Employee e3=new Employee(1, "Buku", "EE");
+	
+	m.put(e1,"Mitul");
+	
+	
+	
+}
+
+class Employee{
+	
+	int id;
+	String name;
+	String dept;
+	
+	Employee(int id,String name,String dept){
+		
+		this.id=id;
+		this.name=name;
+		this.dept=dept;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((dept == null) ? 0 : dept.hashCode());
+		result = prime * result + id;
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Employee other = (Employee) obj;
+		if (dept == null) {
+			if (other.dept != null)
+				return false;
+		} else if (!dept.equals(other.dept))
+			return false;
+		if (id != other.id)
+			return false;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
+		return true;
+	}
+	
+	
+}
